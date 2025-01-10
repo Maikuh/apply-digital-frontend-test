@@ -3,7 +3,7 @@ import { Archivo } from 'next/font/google'
 import './globals.css'
 import cx from '@/utils/cx'
 import Footer from '@/components/Footer'
-import Header from '@/components/Header'
+import Navbar from '@/components/Navbar'
 
 const archivo = Archivo({ subsets: ['latin'] })
 
@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cx(archivo.className, 'min-h-dvh')}>
-        <Header />
+        <Navbar />
         <main className="mx-16">{children}</main>
         <Footer />
       </body>

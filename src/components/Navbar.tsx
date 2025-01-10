@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React from 'react'
 import cartIcon from '@/assets/icons/cart-icon.svg'
 
-export default function Header() {
+export default function Navbar() {
   return (
     <div className="bg-surface-secondary h-16 flex justify-between items-center px-16">
       <Link href="/" className="text-2xl text-primary font-bold">
