@@ -39,3 +39,7 @@ next-env.d.ts
 .idea
 .vscode
 yarn.lock
+
+# environment
+.env
+.env.local

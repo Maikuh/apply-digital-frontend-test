@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 export default function Footer() {
   return (
-    <div className="bg-gray-medium h-44 flex justify-center items-center">
+    <div className="bg-neutral-700 h-44 flex justify-center items-center">
       <Link href="/">
         <Image src={adLogo} alt="Apply Digital Logo" />
       </Link>

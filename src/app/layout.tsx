@@ -21,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={cx(archivo.className, 'min-h-dvh')}>
         <Navbar />
-        <main className="mx-16">{children}</main>
+        <main className='min-h-dvh'>{children}</main>
         <Footer />
       </body>
     </html>
