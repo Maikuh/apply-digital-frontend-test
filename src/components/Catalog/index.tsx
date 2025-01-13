@@ -13,9 +13,8 @@ export default function Catalog({ games }: CatalogProps) {
   const { cart, addToCart, removeFromCart } = useCart()
 
   function handleCartButton(game: Game) {
-    if (cart.includes(game)) {
-      removeFromCart(game.id)
-    } else addToCart(game)
+    if (isGameInCart(game)) removeFromCart(game.id)
+    else addToCart(game)
   }
 
   function isGameInCart(game: Game) {
@@ -37,7 +36,7 @@ export default function Catalog({ games }: CatalogProps) {
               className="rounded-t-2xl object-cover"
             />
             {game.isNew && (
-              <div className="bg-stone-100 top-3 left-3 z-[9999999999] relative max-w-10 flex items-center justify-center rounded px-7 py-1">
+              <div className="bg-stone-100 top-3 left-3 z-[9999999] relative max-w-10 flex items-center justify-center rounded px-7 py-1">
                 New
               </div>
             )}

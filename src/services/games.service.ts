@@ -1,6 +1,6 @@
 import { Game } from '@/utils/endpoint'
 
-interface FetchGamesResponse {
+export interface FetchGamesResponse {
   games: Game[]
   availableFilters: string[]
   totalPages: number
@@ -8,8 +8,8 @@ interface FetchGamesResponse {
 }
 
 interface FetchGameProps {
-  genre: string
-  page: string
+  genre: string | null
+  page: string | null
 }
 
 export async function fetchGames({

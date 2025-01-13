@@ -1,4 +1,5 @@
 'use client'
+import { useQueryClient } from '@tanstack/react-query'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import React, { ChangeEvent } from 'react'
 
@@ -11,15 +12,18 @@ export default function Header({ genres, initialGenre }: HeaderProps) {
   const router = useRouter()
   const searchParams = useSearchParams()
   const pathname = usePathname()
+  const queryClient = useQueryClient()
 
   function handleFilterChange(e: ChangeEvent<HTMLSelectElement>) {
     const value = e.target.value
-    const parmas = new URLSearchParams(searchParams)
+    const params = new URLSearchParams(searchParams)
 
-    if (!value.length) parmas.delete('genre')
-    else parmas.set('genre', value)
+    if (!value.length) params.delete('genre')
+    else params.set('genre', value)
 
-    router.replace(`${pathname}?${parmas.toString()}`)
+    router.replace(`${pathname}?${params.toString()}`)
+
+    queryClient.invalidateQueries({ queryKey: ['games', value] })
   }
 
   return (

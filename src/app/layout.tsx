@@ -4,6 +4,7 @@ import './globals.css'
 import cx from '@/utils/cx'
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
+import Providers from '@/components/Providers'
 
 const archivo = Archivo({ subsets: ['latin'] })
 
@@ -20,9 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cx(archivo.className, 'min-h-dvh')}>
-        <Navbar />
-        <main className='min-h-dvh'>{children}</main>
-        <Footer />
+        <Providers>
+          <Navbar />
+          <main className="min-h-dvh">{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   )
