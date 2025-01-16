@@ -1,8 +1,9 @@
+import { CartContext, CartContextType } from '@/contexts/cart.context'
 import { Game } from '@/utils/endpoint'
-import { useEffect, useMemo, useState } from 'react'
+import { useContext, useEffect, useMemo } from 'react'
 
 export default function useCart() {
-  const [cart, setCart] = useState<Game[]>([])
+  const [cart, setCart] = useContext(CartContext) as CartContextType
   const total = useMemo(
     () => cart.reduce((acc, curr) => acc + curr.price, 0),
     [cart]
@@ -16,7 +17,7 @@ export default function useCart() {
 
       setCart(savedCart)
     }
-  }, [])
+  }, [setCart])
 
   function addToCart(game: Game) {
     const newCart = [...cart, game]
