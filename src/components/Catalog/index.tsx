@@ -4,6 +4,7 @@ import cx from '@/utils/cx'
 import { Game } from '@/utils/endpoint'
 import Image from 'next/image'
 import React from 'react'
+import NewBadge from '../NewBadge'
 
 interface CatalogProps {
   games: Game[]
@@ -35,11 +36,7 @@ export default function Catalog({ games }: CatalogProps) {
               fill
               className="rounded-t-2xl object-cover"
             />
-            {game.isNew && (
-              <div className="bg-stone-100 top-3 left-3 z-[9999999] relative max-w-10 flex items-center justify-center rounded px-7 py-1">
-                New
-              </div>
-            )}
+            {game.isNew && <NewBadge />}
           </div>
 
           <div>

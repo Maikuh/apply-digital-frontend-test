@@ -44,7 +44,7 @@ export default function Home() {
 
         {hasNextPage && (
           <button
-            className="bg-primary rounded-lg py-5 px-6 text-white self-start disabled:bg-gray-400 disabled:text-gray-100"
+            className="bg-primary rounded-lg py-5 px-6 text-white self-start disabled:bg-gray-400 disabled:text-gray-100 w-full md:w-auto"
             onClick={() => fetchNextPage()}
             disabled={isFetching || !hasNextPage}
           >
