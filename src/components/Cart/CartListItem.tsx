@@ -2,8 +2,8 @@ import { Game } from '@/utils/endpoint'
 import Image from 'next/image'
 import NewBadge from '../NewBadge'
 import closeIcon from '@/assets/icons/close-icon.svg'
-import useCart from '@/hooks/cart.hook'
 import cx from '@/utils/cx'
+import useCart from '@/hooks/useCart.hook'
 
 interface CartListItemProps {
   game: Game

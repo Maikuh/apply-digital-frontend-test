@@ -1,9 +1,23 @@
-import { CartContext, CartContextType } from '@/contexts/cart.context'
 import { Game } from '@/utils/endpoint'
-import { useContext, useEffect, useMemo } from 'react'
+import {
+  createContext,
+  PropsWithChildren,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
 
-export default function useCart() {
-  const [cart, setCart] = useContext(CartContext) as CartContextType
+export type CartContextType = {
+  cart: Game[]
+  total: number
+  addToCart: (game: Game) => void
+  removeFromCart: (gameId: string) => void
+}
+
+export const CartContext = createContext<CartContextType | null>(null)
+
+export function CartProvider({ children }: PropsWithChildren) {
+  const [cart, setCart] = useState<Game[]>([])
   const total = useMemo(
     () => cart.reduce((acc, curr) => acc + curr.price, 0),
     [cart]
@@ -34,5 +48,9 @@ export default function useCart() {
     localStorage.setItem('cart', JSON.stringify(filteredCart, null, 2))
   }
 
-  return { cart, total, addToCart, removeFromCart }
+  return (
+    <CartContext.Provider value={{ cart, total, addToCart, removeFromCart }}>
+      {children}
+    </CartContext.Provider>
+  )
 }
