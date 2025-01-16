@@ -1,10 +1,10 @@
 'use client'
-import useCart from '@/hooks/cart.hook'
 import cx from '@/utils/cx'
 import { Game } from '@/utils/endpoint'
 import Image from 'next/image'
 import React from 'react'
 import NewBadge from '../NewBadge'
+import useCart from '@/hooks/useCart.hook'
 
 interface CatalogProps {
   games: Game[]

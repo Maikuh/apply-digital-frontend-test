@@ -3,9 +3,9 @@ import Link from 'next/link'
 import React from 'react'
 import leftArrowIcon from '@/assets/icons/left-arrow-icon.svg'
 import Image from 'next/image'
-import useCart from '@/hooks/cart.hook'
 import OrderSummary from '@/components/Cart/OrderSummary'
 import CartList from '@/components/Cart/CartList'
+import useCart from '@/hooks/useCart.hook'
 
 export default function Cart() {
   const { cart, total } = useCart()
